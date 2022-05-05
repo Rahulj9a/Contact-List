@@ -1,7 +1,7 @@
 var addModel = document.getElementById("ContactModel");
 var searchModel = document.getElementById("filterInput");
 var contacts = document.getElementById("contacts");
-var contactInList = document.getElementByClassName('contactInList')
+//var contactInList = document.getElementByClass('contactInList')
 
 
  
@@ -22,6 +22,7 @@ searchModel.addEventListener('keydown', filterContact);
 function openAddModel(e){
     addModel.style.display = "block";
     searchModel.style.display = "none";
+    console.log('1');
    
 }
 
