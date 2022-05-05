@@ -22,7 +22,7 @@ searchModel.addEventListener('keydown', filterContact);
 function openAddModel(e){
     addModel.style.display = "block";
     searchModel.style.display = "none";
-    console.log('1');
+     
    
 }
 
@@ -104,15 +104,15 @@ function deleteContact(e){
 }
 
 function filterContact(e){
-    var filterValue = e.target.value.LowerCase;
+    var filterValue = e.target.value.toLowerCase();
      var contactList = contacts.getElementsByTagName('li');
 
-     Array.from(contactList).forEach(function(contact){
-         var contactName = contact.firstChild.textContent;
+     Array.from(contactList).forEach(function(contacti){
+         var contactName = contacti.firstChild.textContent;
          if(contactName.toLowerCase().indexOf(filterValue) != -1){
-             contact.style.display = "block";
+             contacti.style.display = "block";
          }else{
-             contact.style.display = "none";
+             contacti.style.display = "none";
          }
      })
      
