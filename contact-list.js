@@ -1,7 +1,7 @@
 var addModel = document.getElementById("ContactModel");
 var searchModel = document.getElementById("filterInput");
 var contacts = document.getElementById("contacts");
-var contactInList = document.getElementByClassName('contactInList')
+
 
 
  
