@@ -1,7 +1,7 @@
 var addModel = document.getElementById("ContactModel");
 var searchModel = document.getElementById("filterInput");
 var contacts = document.getElementById("contacts");
-//var contactInList = document.getElementByClass('contactInList')
+
 
 
  
@@ -17,6 +17,7 @@ searchModel.addEventListener('keyup', filterContact);
 searchModel.addEventListener('keydown', filterContact);
 
 //When click on add button, will open interface to add contact and close the search section
+
 
  
 function openAddModel(e){
@@ -54,29 +55,33 @@ function addContact(e){
     }else{
 
     
-    var li = document.createElement("li");
-    li.className="list-group-item mt-2 mb-1 contactInList";
+    var contact = document.createElement("li");
+    contact.className="list-group-item mt-2 mb-1 contactInList";
     
     var liName = document.createElement("h2");
     liName.appendChild(document.createTextNode(getName.value));
-    li.appendChild(liName);
+    contact.appendChild(liName);
 
     var liNumber = document.createElement("h6");
     liNumber.appendChild(document.createTextNode(getNumber.value));
-    li.appendChild(liNumber);
+    contact.appendChild(liNumber);
 
     var liEmail = document.createElement("h6");
     liEmail.appendChild(document.createTextNode(getEmail.value));
-    li.appendChild(liEmail);
+    contact.appendChild(liEmail);
     
     var deleteButton = document.createElement("button");
      
     deleteButton.className= "btn btn-default btn-danger deleteButton btn-block";
     deleteButton.appendChild(document.createTextNode("Delete Contact"));
-    li.appendChild(deleteButton);
+    contact.appendChild(deleteButton);
     
-    contacts.appendChild(li);
+    contacts.appendChild(contact);
     addModel.style.display = "none"
+
+    localStorage.setItem('contactListLocal', JSON.stringify(contacts));
+
+    
 }
 // after adding it will make sure that all the input columns are empty again
 
@@ -96,9 +101,12 @@ function deleteContact(e){
      
     if(e.target.classList.contains('deleteButton')){
     if(confirm("Are you sure")){
-      var contact =   e.target.parentElement;
-      contacts.removeChild(contact);
+      var contactspecific =   e.target.parentElement;
+      contacts.removeChild(contactspecific);
+      
     }
+
+    
 }
 
 }
@@ -117,3 +125,5 @@ function filterContact(e){
      })
      
 }
+
+ 
